@@ -1,0 +1,57 @@
+*{
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+html{
+  scroll-behavior: smooth;
+}
+
+body{
+  width: 100%;
+  overflow-x: hidden;
+  background: #0b1016;
+  font-family: "Poppins", sans-serif;
+}
+
+a{
+  text-decoration: none;
+}
+
+ul{
+  list-style: none;
+}
+
+button,
+input{
+  font-family: inherit;
+  outline: none;
+}
+
+img{
+  max-width: 100%;
+  display: block;
+}
+
+#root{
+  width: 100%;
+  overflow: hidden;
+}
+
+body{
+    margin: 0;
+    padding: 0;
+
+    background: #0f1115;
+
+    overflow-x: hidden;
+}
+
+/* PAGE SPACE */
+
+main,
+.dashboard-page,
+.home-page{
+    padding-top: 95px;
+}

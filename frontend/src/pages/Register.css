@@ -1,0 +1,297 @@
+/* =========================
+   REGISTER PAGE
+========================= */
+
+.register-page{
+    width: 100%;
+    min-height: 100vh;
+
+    display: flex;
+
+    background: #0f1115;
+}
+
+/* =========================
+   LEFT SIDE
+========================= */
+
+.register-left{
+    flex: 1;
+
+    background:
+    linear-gradient(
+        rgba(0,0,0,0.55),
+        rgba(0,0,0,0.78)
+    ),
+    url("../assets/images/Hero.png");
+
+    background-size: cover;
+    background-position: center;
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    padding: 60px;
+}
+
+.register-overlay{
+    max-width: 520px;
+}
+
+.register-overlay h1{
+    color: white;
+
+    font-size: 70px;
+    font-weight: 300;
+
+    line-height: 1.1;
+
+    margin-bottom: 25px;
+}
+
+.register-overlay p{
+    color: #c7c7c7;
+
+    font-size: 19px;
+
+    line-height: 2;
+
+    margin-bottom: 50px;
+}
+
+/* FEATURES */
+
+.register-features{
+    display: flex;
+    flex-direction: column;
+
+    gap: 22px;
+}
+
+.register-feature{
+    display: flex;
+    align-items: center;
+
+    gap: 18px;
+
+    background: rgba(255,255,255,0.05);
+
+    padding: 18px 22px;
+
+    border-radius: 14px;
+
+    color: white;
+
+    backdrop-filter: blur(10px);
+
+    border: 1px solid rgba(255,255,255,0.05);
+}
+
+.register-feature i{
+    color: #8b4bb7;
+
+    font-size: 20px;
+}
+
+/* =========================
+   RIGHT SIDE
+========================= */
+
+.register-right{
+    flex: 1;
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    background: #15181d;
+
+    padding: 60px;
+}
+
+/* CARD */
+
+.register-card{
+    width: 100%;
+    max-width: 480px;
+
+    background: #1d2128;
+
+    padding: 55px 45px;
+
+    border-radius: 24px;
+
+    border: 1px solid rgba(255,255,255,0.05);
+
+    box-shadow:
+    0 20px 60px rgba(0,0,0,0.35);
+}
+
+.register-card h2{
+    color: white;
+
+    font-size: 42px;
+    font-weight: 300;
+
+    margin-bottom: 10px;
+}
+
+.register-card p{
+    color: #9d9d9d;
+
+    line-height: 1.8;
+
+    margin-bottom: 40px;
+}
+.register-bottom a{
+    color: #8b4bb7;
+
+    margin-left: 8px;
+
+    text-decoration: none;
+
+    font-weight: 500;
+}
+
+/* INPUT */
+
+.register-input{
+    width: 100%;
+    height: 62px;
+
+    background: #111419;
+
+    border: 1px solid rgba(255,255,255,0.06);
+
+    border-radius: 12px;
+
+    display: flex;
+    align-items: center;
+
+    padding: 0 20px;
+
+    margin-bottom: 24px;
+}
+
+.register-input i{
+    color: #8b4bb7;
+
+    margin-right: 14px;
+}
+
+.register-input input{
+    width: 100%;
+
+    background: transparent;
+
+    border: none;
+    outline: none;
+
+    color: white;
+
+    font-size: 16px;
+}
+
+.register-input input::placeholder{
+    color: #777;
+}
+
+/* BUTTON */
+
+.register-card button{
+    width: 100%;
+    height: 58px;
+
+    border: none;
+
+    border-radius: 12px;
+
+    background: linear-gradient(
+        135deg,
+        #8b4bb7,
+        #6c2bd9
+    );
+
+    color: white;
+
+    font-size: 17px;
+    font-weight: 500;
+
+    cursor: pointer;
+
+    transition: 0.4s ease;
+
+    margin-top: 10px;
+}
+
+.register-card button:hover{
+    transform: translateY(-4px);
+
+    opacity: 0.92;
+}
+
+/* BOTTOM */
+
+.register-bottom{
+    margin-top: 28px;
+
+    text-align: center;
+
+    color: #999;
+}
+
+.register-bottom span{
+    color: #8b4bb7;
+
+    margin-left: 8px;
+
+    cursor: pointer;
+}
+
+/* =========================
+   TABLET
+========================= */
+
+@media(max-width:992px){
+
+    .register-page{
+        flex-direction: column;
+    }
+
+    .register-left{
+        min-height: 450px;
+    }
+
+    .register-overlay h1{
+        font-size: 52px;
+    }
+}
+
+/* =========================
+   MOBILE
+========================= */
+
+@media(max-width:600px){
+
+    .register-left,
+    .register-right{
+        padding: 25px;
+    }
+
+    .register-overlay h1{
+        font-size: 42px;
+    }
+
+    .register-overlay p{
+        font-size: 16px;
+    }
+
+    .register-card{
+        padding: 40px 25px;
+    }
+
+    .register-card h2{
+        font-size: 32px;
+    }
+}

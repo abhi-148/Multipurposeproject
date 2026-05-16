@@ -1,0 +1,291 @@
+.team-section{
+    width: 100%;
+
+    background: #0b1016;
+
+    padding: 130px 0;
+
+    border-top: 8px solid #0a0d12;
+
+    overflow: hidden;
+}
+
+/* =========================
+   TOP
+========================= */
+
+.team-top{
+    width: 90%;
+
+    margin: auto;
+
+    text-align: center;
+
+    margin-bottom: 90px;
+}
+
+.team-top h1{
+    color: #ececec;
+
+    font-size: 66px;
+    font-weight: 300;
+
+    margin-bottom: 20px;
+}
+
+.team-top p{
+    color: #8f8f8f;
+
+    font-size: 18px;
+}
+
+/* =========================
+   GRID
+========================= */
+
+.team-grid{
+    width: 88%;
+
+    margin: auto;
+
+    display: grid;
+
+    grid-template-columns: repeat(3,1fr);
+
+    gap: 45px;
+}
+
+/* =========================
+   CARD
+========================= */
+
+.team-card{
+    transition: 0.5s ease;
+}
+
+/* =========================
+   IMAGE
+========================= */
+
+.team-image{
+    position: relative;
+
+    overflow: hidden;
+
+    cursor: pointer;
+}
+
+.team-image img{
+    width: 100%;
+
+    height: 420px;
+
+    object-fit: cover;
+
+    display: block;
+
+    transition:
+    transform 0.7s ease,
+    filter 0.7s ease;
+}
+
+/* =========================
+   OVERLAY
+========================= */
+
+.team-overlay{
+    position: absolute;
+
+    inset: 0;
+
+    background: rgba(0,0,0,0.6);
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    opacity: 0;
+
+    transition: 0.5s ease;
+}
+
+/* HOVER */
+
+.team-image:hover .team-overlay{
+    opacity: 1;
+}
+
+.team-image:hover img{
+    transform: scale(1.08);
+
+    filter: brightness(0.45);
+}
+
+/* =========================
+   ICONS
+========================= */
+
+.team-icons{
+    display: flex;
+
+    gap: 18px;
+}
+
+.team-icons i{
+    width: 48px;
+    height: 48px;
+
+    border: 1px solid rgba(255,255,255,0.5);
+
+    border-radius: 50%;
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    color: white;
+
+    font-size: 16px;
+
+    transition: 0.3s ease;
+}
+
+.team-icons i:hover{
+    background: white;
+
+    color: black;
+
+    transform: translateY(-4px);
+}
+
+/* =========================
+   CONTENT
+========================= */
+
+.team-content{
+    padding-top: 28px;
+}
+
+.team-content h2{
+    color: #ececec;
+
+    font-size: 28px;
+    font-weight: 600;
+
+    margin-bottom: 20px;
+
+    display: flex;
+    align-items: center;
+
+    gap: 12px;
+
+    flex-wrap: wrap;
+}
+
+.team-content h2 span{
+    color: #8b4bb7;
+
+    font-size: 24px;
+}
+
+.team-content h2 small{
+    color: #8f8f8f;
+
+    font-size: 14px;
+    font-weight: 400;
+
+    text-transform: uppercase;
+
+    letter-spacing: 1px;
+}
+
+.team-content p{
+    color: #8d8d8d;
+
+    font-size: 18px;
+
+    line-height: 2;
+}
+
+/* =========================
+   CARD HOVER
+========================= */
+
+.team-card:hover{
+    transform: translateY(-8px);
+}
+
+/* =========================
+   LAPTOP
+========================= */
+
+@media(max-width:1200px){
+
+    .team-top h1{
+        font-size: 54px;
+    }
+
+    .team-content h2{
+        font-size: 24px;
+    }
+
+    .team-content p{
+        font-size: 16px;
+    }
+}
+
+/* =========================
+   TABLET
+========================= */
+
+@media(max-width:992px){
+
+    .team-grid{
+        grid-template-columns: repeat(2,1fr);
+    }
+}
+
+/* =========================
+   MOBILE
+========================= */
+
+@media(max-width:600px){
+
+    .team-section{
+        padding: 90px 0;
+    }
+
+    .team-top{
+        margin-bottom: 60px;
+    }
+
+    .team-top h1{
+        font-size: 38px;
+    }
+
+    .team-top p{
+        font-size: 15px;
+    }
+
+    .team-grid{
+        width: 92%;
+
+        grid-template-columns: 1fr;
+
+        gap: 40px;
+    }
+
+    .team-image img{
+        height: 380px;
+    }
+
+    .team-content h2{
+        font-size: 22px;
+    }
+
+    .team-content p{
+        font-size: 15px;
+
+        line-height: 1.8;
+    }
+}

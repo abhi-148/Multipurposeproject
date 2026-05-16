@@ -1,0 +1,266 @@
+.work-section{
+    width: 100%;
+
+    background: #0c1117;
+
+    padding: 130px 0;
+
+    border-top: 24px solid #0d1015;
+
+    border-bottom: 24px solid #0d1015;
+
+    overflow: hidden;
+}
+
+/* =========================
+   CONTAINER
+========================= */
+
+.work-container{
+    width: 86%;
+
+    margin: auto;
+
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+
+    gap: 100px;
+}
+
+/* =========================
+   LEFT SIDE
+========================= */
+
+.work-left{
+    flex: 1;
+
+    position: relative;
+}
+
+.work-left h1{
+    color: #ececec;
+
+    font-size: 62px;
+    font-weight: 300;
+
+    line-height: 1.2;
+
+    animation: fadeLeft 1s ease;
+}
+
+/* =========================
+   RIGHT SIDE
+========================= */
+
+.work-right{
+    flex: 1.6;
+
+    display: grid;
+
+    grid-template-columns: repeat(2,1fr);
+
+    gap: 70px 60px;
+}
+
+/* =========================
+   CARD
+========================= */
+
+.work-card{
+    display: flex;
+
+    align-items: flex-start;
+
+    gap: 28px;
+
+    animation: fadeUp 1s ease;
+}
+
+/* =========================
+   ICON CIRCLE
+========================= */
+
+.icon-circle{
+    width: 88px;
+    height: 88px;
+
+    min-width: 88px;
+
+    border-radius: 50%;
+
+    background: rgba(255,255,255,0.03);
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    transition: 0.3s;
+}
+
+.icon-circle:hover{
+    background: rgba(255,255,255,0.06);
+
+    transform: translateY(-5px);
+}
+
+.icon-circle i{
+    color: #f0d4b4;
+
+    font-size: 34px;
+}
+
+/* =========================
+   CONTENT
+========================= */
+
+.work-card h2{
+    color: #f0d4b4;
+
+    font-size: 34px;
+    font-weight: 600;
+
+    margin-bottom: 18px;
+}
+
+.work-card p{
+    color: #9d9d9d;
+
+    line-height: 1.95;
+
+    font-size: 18px;
+}
+
+/* =========================
+   ANIMATIONS
+========================= */
+
+@keyframes fadeLeft{
+
+    from{
+        opacity: 0;
+        transform: translateX(-80px);
+    }
+
+    to{
+        opacity: 1;
+        transform: translateX(0);
+    }
+}
+
+@keyframes fadeUp{
+
+    from{
+        opacity: 0;
+        transform: translateY(40px);
+    }
+
+    to{
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+/* =========================
+   LAPTOP
+========================= */
+
+@media(max-width:1200px){
+
+    .work-container{
+        width: 90%;
+
+        gap: 70px;
+    }
+
+    .work-left h1{
+        font-size: 52px;
+    }
+
+    .work-card h2{
+        font-size: 28px;
+    }
+
+    .work-card p{
+        font-size: 17px;
+    }
+}
+
+/* =========================
+   TABLET
+========================= */
+
+@media(max-width:992px){
+
+    .work-section{
+        padding: 100px 0;
+
+        border-top: 16px solid #0d1015;
+
+        border-bottom: 16px solid #0d1015;
+    }
+
+    .work-container{
+        flex-direction: column;
+
+        gap: 70px;
+    }
+
+    .work-right{
+        grid-template-columns: 1fr;
+    }
+
+    .work-left h1{
+        text-align: center;
+
+        font-size: 48px;
+    }
+}
+
+/* =========================
+   MOBILE
+========================= */
+
+@media(max-width:600px){
+
+    .work-section{
+        padding: 80px 0;
+
+        border-top: 12px solid #0d1015;
+
+        border-bottom: 12px solid #0d1015;
+    }
+
+    .work-container{
+        width: 92%;
+    }
+
+    .work-left h1{
+        font-size: 36px;
+    }
+
+    .work-card{
+        flex-direction: column;
+    }
+
+    .icon-circle{
+        width: 72px;
+        height: 72px;
+
+        min-width: 72px;
+    }
+
+    .icon-circle i{
+        font-size: 28px;
+    }
+
+    .work-card h2{
+        font-size: 24px;
+    }
+
+    .work-card p{
+        font-size: 16px;
+
+        line-height: 1.8;
+    }
+}

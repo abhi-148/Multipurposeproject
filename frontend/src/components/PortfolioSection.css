@@ -1,0 +1,321 @@
+.portfolio-section{
+    width: 100%;
+
+    background: #0b1016;
+
+    padding: 120px 0;
+
+    border-top: 8px solid #0a0d12;
+
+    overflow: hidden;
+}
+
+/* =========================
+   TOP
+========================= */
+
+.portfolio-top{
+    width: 90%;
+
+    margin: auto;
+
+    text-align: center;
+
+    margin-bottom: 90px;
+}
+
+.portfolio-top h1{
+    color: #ececec;
+
+    font-size: 64px;
+    font-weight: 300;
+
+    margin-bottom: 30px;
+}
+
+/* FILTER LINKS */
+
+.portfolio-links{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    gap: 18px;
+
+    flex-wrap: wrap;
+}
+
+.portfolio-links span{
+    color: #8f8f8f;
+
+    font-size: 15px;
+
+    cursor: pointer;
+
+    transition: 0.3s;
+}
+
+.portfolio-links span:hover{
+    color: #d7b997;
+}
+
+/* =========================
+   GRID
+========================= */
+
+.portfolio-grid{
+    width: 92%;
+
+    margin: auto;
+
+    display: grid;
+
+    grid-template-columns: repeat(3,1fr);
+
+    gap: 35px;
+}
+
+/* =========================
+   CARD
+========================= */
+
+.portfolio-card{
+    position: relative;
+
+    overflow: hidden;
+
+    cursor: pointer;
+
+    background: #111;
+}
+
+/* IMAGE */
+
+.portfolio-card img{
+    width: 100%;
+    height: 100%;
+
+    display: block;
+
+    object-fit: cover;
+
+    transition:
+    transform 0.7s ease,
+    filter 0.7s ease;
+}
+
+/* OVERLAY */
+
+.portfolio-overlay{
+    position: absolute;
+
+    inset: 0;
+
+    background: rgba(0,0,0,0.62);
+
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+
+    text-align: center;
+
+    padding: 20px;
+
+    opacity: 0;
+
+    transition: 0.5s ease;
+}
+
+/* HOVER EFFECT */
+
+.portfolio-card:hover .portfolio-overlay{
+    opacity: 1;
+}
+
+.portfolio-card:hover img{
+    transform: scale(1.08);
+
+    filter: brightness(0.4);
+}
+
+/* TEXT */
+
+.portfolio-overlay h2{
+    color: white;
+
+    font-size: 34px;
+    font-weight: 500;
+
+    margin-bottom: 15px;
+
+    transform: translateY(30px);
+
+    transition: 0.5s ease;
+}
+
+.portfolio-overlay p{
+    color: #d7b997;
+
+    font-size: 18px;
+
+    margin-bottom: 25px;
+
+    transform: translateY(30px);
+
+    transition: 0.6s ease;
+}
+
+/* BUTTON */
+
+.portfolio-overlay button{
+    background: transparent;
+
+    border: 1px solid white;
+
+    color: white;
+
+    padding: 14px 30px;
+
+    font-size: 15px;
+
+    cursor: pointer;
+
+    transition: 0.3s;
+
+    transform: translateY(30px);
+}
+
+.portfolio-overlay button:hover{
+    background: white;
+
+    color: black;
+}
+
+/* TEXT ANIMATION */
+
+.portfolio-card:hover .portfolio-overlay h2,
+.portfolio-card:hover .portfolio-overlay p,
+.portfolio-card:hover .portfolio-overlay button{
+    transform: translateY(0);
+}
+
+/* =========================
+   LAPTOP
+========================= */
+
+@media(max-width:1200px){
+
+    .portfolio-top h1{
+        font-size: 54px;
+    }
+}
+
+/* =========================
+   TABLET
+========================= */
+
+@media(max-width:992px){
+
+    .portfolio-grid{
+        grid-template-columns: repeat(2,1fr);
+    }
+
+    .portfolio-top h1{
+        font-size: 46px;
+    }
+}
+
+/* =========================
+   MOBILE
+========================= */
+
+@media(max-width:600px){
+
+    .portfolio-section{
+        padding: 80px 0;
+    }
+
+    .portfolio-grid{
+        grid-template-columns: 1fr;
+
+        gap: 25px;
+    }
+
+    .portfolio-top{
+        margin-bottom: 60px;
+    }
+
+    .portfolio-top h1{
+        font-size: 36px;
+    }
+
+    .portfolio-overlay h2{
+        font-size: 28px;
+    }
+
+    .portfolio-overlay p{
+        font-size: 16px;
+    }
+
+    .portfolio-overlay button{
+        width: 100%;
+    }
+}
+
+/* ACTIVE FILTER */
+
+.active-filter{
+    color: #d7b997 !important;
+
+    border-bottom: 1px solid #d7b997;
+
+    padding-bottom: 4px;
+}
+
+/* IMAGE POPUP */
+
+.image-popup{
+    position: fixed;
+
+    inset: 0;
+
+    background: rgba(0,0,0,0.92);
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    z-index: 99999;
+
+    padding: 40px;
+
+    cursor: pointer;
+}
+
+.image-popup img{
+    width: auto;
+
+    max-width: 90%;
+
+    max-height: 90vh;
+
+    object-fit: contain;
+
+    animation: popupZoom 0.4s ease;
+}
+
+/* ANIMATION */
+
+@keyframes popupZoom{
+
+    from{
+        transform: scale(0.8);
+        opacity: 0;
+    }
+
+    to{
+        transform: scale(1);
+        opacity: 1;
+    }
+}
