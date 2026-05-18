@@ -1,5 +1,18 @@
 import express from "express";
 
+import swaggerUi
+from "swagger-ui-express";
+
+import swaggerJsdoc
+from "swagger-jsdoc";
+
+import helmet from "helmet";
+
+import morgan from "morgan";
+
+import rateLimit
+from "express-rate-limit";
+
 import cors from "cors";
 
 import dotenv from "dotenv";
@@ -22,12 +35,91 @@ dotenv.config();
 const app = express();
 
 /* =========================
+   SWAGGER CONFIG
+========================= */
+
+const options = {
+
+  definition: {
+
+    openapi: "3.0.0",
+
+    info: {
+
+      title:
+      "Modena Task Manager API",
+
+      version: "1.0.0",
+
+      description:
+      "Full Stack Task Manager Backend APIs",
+
+    },
+
+    servers: [
+
+      {
+
+        url:
+        "http://localhost:5000",
+
+      },
+
+    ],
+
+  },
+
+  apis: ["./server.js"],
+
+};
+
+const swaggerSpec =
+
+swaggerJsdoc(options);
+
+/* SWAGGER ROUTE */
+
+app.use(
+
+  "/api-docs",
+
+  swaggerUi.serve,
+
+  swaggerUi.setup(swaggerSpec)
+
+);
+
+/* =========================
    MIDDLEWARE
 ========================= */
 
 app.use(cors());
 
 app.use(express.json());
+
+/* SECURITY */
+
+app.use(helmet());
+
+/* LOGGER */
+
+app.use(morgan("dev"));
+
+/* RATE LIMIT */
+
+const limiter = rateLimit({
+
+  windowMs:
+    15 * 60 * 1000,
+
+  max: 100,
+
+  message:
+    "Too many requests from this IP",
+
+});
+
+app.use(limiter);
 
 /* =========================
    HOME ROUTE
@@ -44,7 +136,32 @@ app.get("/", (req, res) => {
 /* =========================
    REGISTER API
 ========================= */
-
+/**
+ * @swagger
+ * /register:
+ *   post:
+ *     summary:
+ *       Register User
+ *     tags:
+ *       - Authentication
+ *     requestBody:
+ *       required: true
+ *       content:
+ *         application/json:
+ *           schema:
+ *             type: object
+ *             properties:
+ *               name:
+ *                 type: string
+ *               email:
+ *                 type: string
+ *               password:
+ *                 type: string
+ *     responses:
+ *       201:
+ *         description:
+ *           User Registered Successfully
+ */
 app.post(
 
   "/register",
@@ -152,6 +269,30 @@ app.post(
 /* =========================
    LOGIN API
 ========================= */
+/**
+ * @swagger
+ * /login:
+ *   post:
+ *     summary:
+ *       Login User
+ *     tags:
+ *       - Authentication
+ *     requestBody:
+ *       required: true
+ *       content:
+ *         application/json:
+ *           schema:
+ *             type: object
+ *             properties:
+ *               email:
+ *                 type: string
+ *               password:
+ *                 type: string
+ *     responses:
+ *       200:
+ *         description:
+ *           Login Successful
+ */
 
 app.post(
 
@@ -333,6 +474,37 @@ app.get(
    ADD TASK API
 ========================= */
 
+/**
+ * @swagger
+ * /add-task:
+ *   post:
+ *     summary:
+ *       Add New Task
+ *     tags:
+ *       - Tasks
+ *     requestBody:
+ *       required: true
+ *       content:
+ *         application/json:
+ *           schema:
+ *             type: object
+ *             properties:
+ *               title:
+ *                 type: string
+ *               description:
+ *                 type: string
+ *               status:
+ *                 type: string
+ *               priority:
+ *                 type: string
+ *               user_email:
+ *                 type: string
+ *     responses:
+ *       201:
+ *         description:
+ *           Task Added Successfully
+ */
+
 app.post(
 
   "/add-task",
@@ -426,6 +598,26 @@ app.post(
    GET TASKS API
 ========================= */
 
+/**
+ * @swagger
+ * /tasks/{email}:
+ *   get:
+ *     summary:
+ *       Get Tasks by User Email
+ *     tags:
+ *       - Tasks
+ *     parameters:
+ *       - name: email
+ *         in: path
+ *         required: true
+ *         schema:
+ *           type: string
+ *     responses:
+ *       200:
+ *         description:
+ *           Tasks Retrieved Successfully
+ */
+
 app.get(
 
   "/tasks/:email",
@@ -486,6 +678,20 @@ app.get(
    DELETE TASK API
 ========================= */
 
+/**
+ * @swagger
+ * /delete-task/{id}:
+ *   delete:
+ *     summary:
+ *       Delete Task
+ *     tags:
+ *       - Tasks
+ *     responses:
+ *       200:
+ *         description:
+ *           Task deleted successfully
+ */
+
 app.delete(
 
   "/delete-task/:id",
@@ -543,6 +749,20 @@ app.delete(
 /* =========================
    UPDATE TASK STATUS
 ========================= */
+
+/**
+ * @swagger
+ * /update-task/{id}:
+ *   put:
+ *     summary:
+ *       Update Task Status
+ *     tags:
+ *       - Tasks
+ *     responses:
+ *       200:
+ *         description:
+ *           Task updated successfully
+ */
 
 app.put(
 
